@@ -1,0 +1,29 @@
+services:
+  db:
+    container_name: postgres_container
+    image: bitnami/postgresql:latest
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      # POSTGRES_DB: test_db it is optional, if you want to create a database once the container is created
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Volume to persist PostgreSQL data
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin  # Volume to persist pgAdmin data
+
+volumes:
+  pgdata:  # Volume para o PostgreSQL
+  pgadmin_data:  # Volume para o pgAdmin
