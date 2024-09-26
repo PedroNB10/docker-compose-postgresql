@@ -11,7 +11,7 @@ This is a simple example of how to use Docker Compose to create a PostgreSQL dat
 - Run the following command to initialize the containers:
     
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 - Inspect the postgres_container to get the IP address of the PostgreSQL container and keep it for later use:
