@@ -2,7 +2,7 @@ services:
   db:
     container_name: postgres_container
     image: bitnami/postgresql:latest
-    restart: "no"
+    restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
